@@ -1,0 +1,5 @@
+/workspaces/cs375-fa25-final-project/build/CMakeFiles/server.dir
+/workspaces/cs375-fa25-final-project/build/CMakeFiles/client.dir
+/workspaces/cs375-fa25-final-project/build/CMakeFiles/bot_test.dir
+/workspaces/cs375-fa25-final-project/build/CMakeFiles/edit_cache.dir
+/workspaces/cs375-fa25-final-project/build/CMakeFiles/rebuild_cache.dir
