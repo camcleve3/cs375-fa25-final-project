@@ -16,7 +16,7 @@ include_directories(${CMAKE_SOURCE_DIR}/Groupchat)
 
 # Source files shared between targets
 set(SHARED_SOURCES
-    Groupchat/server/cache.cpp
+    Groupchat/shared/cache.cpp
 )
 
 # ======================

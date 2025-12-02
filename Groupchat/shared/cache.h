@@ -5,19 +5,27 @@
 #include <vector>
 #include <mutex>
 #include <unordered_map>
+#include <chrono>
+
+struct CachedMessage {
+    ChatPacket packet;
+    std::chrono::system_clock::time_point timestamp;
+};
 
 class CircularCache {
 public:
-    explicit CircularCache(size_t capacity = 20);
+    explicit CircularCache(size_t capacity = 20, uint32_t ttlSeconds = 300);
 
     void add(const ChatPacket &pkt);
     std::vector<ChatPacket> getAll() const;
+    void evictExpired();
 
 private:
     size_t capacity;
+    uint32_t ttl;  // Time to live in seconds
     size_t head;
     size_t count;
-    std::vector<ChatPacket> buffer;
+    std::vector<CachedMessage> buffer;
 };
 
 class GroupCacheManager {

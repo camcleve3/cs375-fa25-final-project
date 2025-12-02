@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/server.dir/Groupchat/server/cache.cpp.o"
-  "CMakeFiles/server.dir/Groupchat/server/cache.cpp.o.d"
   "CMakeFiles/server.dir/Groupchat/server/chat_server.cpp.o"
   "CMakeFiles/server.dir/Groupchat/server/chat_server.cpp.o.d"
   "CMakeFiles/server.dir/Groupchat/server/group_manager.cpp.o"
@@ -9,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/server.dir/Groupchat/server/main.cpp.o.d"
   "CMakeFiles/server.dir/Groupchat/server/thread_pool.cpp.o"
   "CMakeFiles/server.dir/Groupchat/server/thread_pool.cpp.o.d"
+  "CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o"
+  "CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o.d"
   "server"
   "server.pdb"
 )

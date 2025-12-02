@@ -48,9 +48,9 @@ void GroupManager::broadcast(int senderSocket,
 
     // Log to file
     {
-        std::ofstream log("logs/chat_log.txt", std::ios::app);
+        std::ofstream log("../Groupchat/logs/chat_log.txt", std::ios::app);
         log << pktHost.timestamp << " | group " << groupID
-            << " | msg: " << pktHost.payload << "\n";
+            << " | " << pktHost.senderName << ": " << pktHost.payload << "\n";
     }
 
     ChatPacket netPkt = to_network(pktHost);
@@ -67,4 +67,19 @@ void GroupManager::broadcast(int senderSocket,
             std::cerr << "send failed to client " << sock << "\n";
         }
     }
+}
+
+std::vector<uint16_t> GroupManager::getActiveGroups() {
+    std::lock_guard<std::mutex> lock(mtx);
+    std::vector<uint16_t> groups;
+    for (const auto &pair : groupMembers) {
+        if (!pair.second.empty()) {
+            groups.push_back(pair.first);
+        }
+    }
+    return groups;
+}
+
+std::vector<ChatPacket> GroupManager::getGroupHistory(uint16_t groupID) {
+    return cache.getHistory(groupID);
 }

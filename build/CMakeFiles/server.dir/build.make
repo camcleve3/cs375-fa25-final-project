@@ -125,19 +125,19 @@ CMakeFiles/server.dir/Groupchat/server/group_manager.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/server.dir/Groupchat/server/group_manager.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/cs375-fa25-final-project/Groupchat/server/group_manager.cpp -o CMakeFiles/server.dir/Groupchat/server/group_manager.cpp.s
 
-CMakeFiles/server.dir/Groupchat/server/cache.cpp.o: CMakeFiles/server.dir/flags.make
-CMakeFiles/server.dir/Groupchat/server/cache.cpp.o: /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp
-CMakeFiles/server.dir/Groupchat/server/cache.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/cs375-fa25-final-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/server.dir/Groupchat/server/cache.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/Groupchat/server/cache.cpp.o -MF CMakeFiles/server.dir/Groupchat/server/cache.cpp.o.d -o CMakeFiles/server.dir/Groupchat/server/cache.cpp.o -c /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp
+CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o: CMakeFiles/server.dir/flags.make
+CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o: /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp
+CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o: CMakeFiles/server.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/cs375-fa25-final-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o -MF CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o.d -o CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o -c /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp
 
-CMakeFiles/server.dir/Groupchat/server/cache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/server.dir/Groupchat/server/cache.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp > CMakeFiles/server.dir/Groupchat/server/cache.cpp.i
+CMakeFiles/server.dir/Groupchat/shared/cache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/server.dir/Groupchat/shared/cache.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp > CMakeFiles/server.dir/Groupchat/shared/cache.cpp.i
 
-CMakeFiles/server.dir/Groupchat/server/cache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/server.dir/Groupchat/server/cache.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp -o CMakeFiles/server.dir/Groupchat/server/cache.cpp.s
+CMakeFiles/server.dir/Groupchat/shared/cache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/server.dir/Groupchat/shared/cache.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp -o CMakeFiles/server.dir/Groupchat/shared/cache.cpp.s
 
 # Object files for target server
 server_OBJECTS = \
@@ -145,7 +145,7 @@ server_OBJECTS = \
 "CMakeFiles/server.dir/Groupchat/server/chat_server.cpp.o" \
 "CMakeFiles/server.dir/Groupchat/server/thread_pool.cpp.o" \
 "CMakeFiles/server.dir/Groupchat/server/group_manager.cpp.o" \
-"CMakeFiles/server.dir/Groupchat/server/cache.cpp.o"
+"CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o"
 
 # External object files for target server
 server_EXTERNAL_OBJECTS =
@@ -154,7 +154,7 @@ server: CMakeFiles/server.dir/Groupchat/server/main.cpp.o
 server: CMakeFiles/server.dir/Groupchat/server/chat_server.cpp.o
 server: CMakeFiles/server.dir/Groupchat/server/thread_pool.cpp.o
 server: CMakeFiles/server.dir/Groupchat/server/group_manager.cpp.o
-server: CMakeFiles/server.dir/Groupchat/server/cache.cpp.o
+server: CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o
 server: CMakeFiles/server.dir/build.make
 server: CMakeFiles/server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/cs375-fa25-final-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable server"

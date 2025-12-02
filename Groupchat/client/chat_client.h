@@ -14,6 +14,7 @@ private:
     std::string host;
     int port;
     int sock;
+    std::string username;
 
     void connect_to_server();
     void send_loop();

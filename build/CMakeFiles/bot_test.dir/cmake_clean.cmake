@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o"
-  "CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o.d"
+  "CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o"
+  "CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o.d"
   "CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.o"
   "CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.o.d"
   "bot_test"

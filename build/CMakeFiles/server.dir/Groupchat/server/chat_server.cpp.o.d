@@ -196,7 +196,9 @@ CMakeFiles/server.dir/Groupchat/server/chat_server.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
  /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.h \
- /usr/include/c++/13/iostream /usr/include/c++/13/ostream \
+ /workspaces/cs375-fa25-final-project/Groupchat/shared/virtual_memory.h \
+ /workspaces/cs375-fa25-final-project/Groupchat/shared/metrics.h \
+ /usr/include/c++/13/fstream /usr/include/c++/13/istream \
  /usr/include/c++/13/ios /usr/include/c++/13/bits/ios_base.h \
  /usr/include/c++/13/bits/locale_classes.h \
  /usr/include/c++/13/bits/locale_classes.tcc \
@@ -209,10 +211,13 @@ CMakeFiles/server.dir/Groupchat/server/chat_server.cpp.o: \
  /usr/include/c++/13/bits/streambuf_iterator.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
  /usr/include/c++/13/bits/locale_facets.tcc \
- /usr/include/c++/13/bits/basic_ios.tcc \
- /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/c++/13/bits/basic_ios.tcc /usr/include/c++/13/ostream \
+ /usr/include/c++/13/bits/ostream.tcc \
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc /usr/include/c++/13/iostream \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \

@@ -19,6 +19,9 @@ public:
                    uint16_t groupID,
                    const ChatPacket &pkt);
 
+    std::vector<uint16_t> getActiveGroups();
+    std::vector<ChatPacket> getGroupHistory(uint16_t groupID);
+
     GroupCacheManager &cacheManager() { return cache; }
 
 private:

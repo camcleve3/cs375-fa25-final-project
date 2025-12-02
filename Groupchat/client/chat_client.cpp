@@ -1,5 +1,4 @@
 #include "chat_client.h"
-
 #include <iostream>
 #include <thread>
 #include <arpa/inet.h>
@@ -7,77 +6,89 @@
 #include <unistd.h>
 
 ChatClient::ChatClient(const std::string &host, int port)
-    : host(host), port(port), sock(-1) {}
+    : host(host), port(port), sock(-1) { }
 
 void ChatClient::connect_to_server() {
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
         perror("socket");
-        std::exit(EXIT_FAILURE);
+        std::exit(1);
     }
 
-    sockaddr_in serv_addr{};
-    serv_addr.sin_family = AF_INET;
-    serv_addr.sin_port   = htons(port);
+    sockaddr_in serv{};
+    serv.sin_family = AF_INET;
+    serv.sin_port   = htons(port);
+    inet_pton(AF_INET, host.c_str(), &serv.sin_addr);
 
-    if (inet_pton(AF_INET, host.c_str(), &serv_addr.sin_addr) <= 0) {
-        std::cerr << "Invalid address\n";
-        std::exit(EXIT_FAILURE);
-    }
-
-    if (connect(sock, (sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
+    if (connect(sock, (sockaddr*)&serv, sizeof(serv)) < 0) {
         perror("connect");
-        std::exit(EXIT_FAILURE);
+        std::exit(1);
     }
-    std::cout << "Connected to server " << host << ":" << port << "\n";
+
+    std::cout << "Connected to server\n";
 }
 
 void ChatClient::send_loop() {
-    std::cout << "Enter /join <id>, /switch <id>, or just message text.\n";
     uint16_t currentGroup = 1;
 
-    // Join default group 1
-    ChatPacket joinPkt = make_packet(MSG_JOIN, currentGroup, "join");
-    ChatPacket netJoin = to_network(joinPkt);
-    send(sock, &netJoin, sizeof(netJoin), 0);
+    // Get username
+    std::cout << "Enter your username: ";
+    std::getline(std::cin, username);
+
+    // Auto-join group 1
+    ChatPacket joinPkt = make_packet(MSG_JOIN, currentGroup, "", 0, username);
+    ChatPacket netPkt = to_network(joinPkt);
+    send(sock, &netPkt, sizeof(netPkt), 0);
 
     while (true) {
         std::string line;
-        if (!std::getline(std::cin, line)) break;
+        std::getline(std::cin, line);
 
-        if (line.rfind("/join ", 0) == 0 || line.rfind("/switch ", 0) == 0) {
-            int id = std::stoi(line.substr(line.find(' ') + 1));
-            currentGroup = static_cast<uint16_t>(id);
-            MessageType type = (line[1] == 'j') ? MSG_JOIN : MSG_SWITCH;
-            ChatPacket pkt = make_packet(type, currentGroup, "");
-            ChatPacket net = to_network(pkt);
-            send(sock, &net, sizeof(net), 0);
+        if (line.rfind("/switch ", 0) == 0) {
+            int g = std::stoi(line.substr(8));
+            currentGroup = g;
+            ChatPacket p = make_packet(MSG_SWITCH, g, "", 0, username);
+            ChatPacket n = to_network(p);
+            send(sock, &n, sizeof(n), 0);
+            std::cout << "Switched to group " << g << "\n";
             continue;
         }
 
         if (line == "/quit") {
             close(sock);
-            std::exit(0);
+            exit(0);
         }
 
-        ChatPacket msg = make_packet(MSG_TEXT, currentGroup, line);
-        ChatPacket net = to_network(msg);
+        if (line.rfind("/list", 0) == 0) {
+            ChatPacket p = make_packet(MSG_LIST_GROUPS, 0, "", 0, username);
+            ChatPacket n = to_network(p);
+            send(sock, &n, sizeof(n), 0);
+            continue;
+        }
+
+        ChatPacket pkt = make_packet(MSG_TEXT, currentGroup, line, 0, username);
+        ChatPacket net = to_network(pkt);
         send(sock, &net, sizeof(net), 0);
+
+        std::cout << "[You] " << line << "\n";
     }
 }
 
 void ChatClient::receive_loop() {
     while (true) {
-        ChatPacket netPkt{};
-        ssize_t bytes = recv(sock, &netPkt, sizeof(netPkt), 0);
+        ChatPacket net{};
+        ssize_t bytes = recv(sock, &net, sizeof(net), 0);
         if (bytes <= 0) {
-            std::cout << "Disconnected from server.\n";
-            std::exit(0);
+            std::cout << "Disconnected\n";
+            exit(0);
         }
-        ChatPacket pkt = to_host(netPkt);
+
+        ChatPacket pkt = to_host(net);
         if (pkt.type == MSG_TEXT) {
-            std::cout << "[G" << pkt.groupID << "] "
+            std::cout << "[G" << pkt.groupID << "][" << pkt.senderName << "] "
                       << pkt.payload << "\n";
+        } else if (pkt.type == MSG_LIST_GROUPS) {
+            std::cout << "Active groups: " << pkt.payload << "\n";
         }
     }
 }

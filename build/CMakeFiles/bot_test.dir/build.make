@@ -83,30 +83,30 @@ CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/cs375-fa25-final-project/Groupchat/tests/bot_test.cpp -o CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.s
 
-CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o: CMakeFiles/bot_test.dir/flags.make
-CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o: /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp
-CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o: CMakeFiles/bot_test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/cs375-fa25-final-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o -MF CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o.d -o CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o -c /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp
+CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o: CMakeFiles/bot_test.dir/flags.make
+CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o: /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp
+CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o: CMakeFiles/bot_test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspaces/cs375-fa25-final-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o -MF CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o.d -o CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o -c /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp
 
-CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp > CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.i
+CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp > CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.i
 
-CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp -o CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.s
+CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp -o CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.s
 
 # Object files for target bot_test
 bot_test_OBJECTS = \
 "CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.o" \
-"CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o"
+"CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o"
 
 # External object files for target bot_test
 bot_test_EXTERNAL_OBJECTS =
 
 bot_test: CMakeFiles/bot_test.dir/Groupchat/tests/bot_test.cpp.o
-bot_test: CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o
+bot_test: CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o
 bot_test: CMakeFiles/bot_test.dir/build.make
 bot_test: CMakeFiles/bot_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspaces/cs375-fa25-final-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable bot_test"

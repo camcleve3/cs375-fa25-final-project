@@ -203,36 +203,6 @@ Groupchat/client/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/client/main.cpp.s
 .PHONY : Groupchat/client/main.cpp.s
 
-Groupchat/server/cache.o: Groupchat/server/cache.cpp.o
-.PHONY : Groupchat/server/cache.o
-
-# target to build an object file
-Groupchat/server/cache.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/server/cache.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/server/cache.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bot_test.dir/build.make CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.o
-.PHONY : Groupchat/server/cache.cpp.o
-
-Groupchat/server/cache.i: Groupchat/server/cache.cpp.i
-.PHONY : Groupchat/server/cache.i
-
-# target to preprocess a source file
-Groupchat/server/cache.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/server/cache.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/server/cache.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bot_test.dir/build.make CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.i
-.PHONY : Groupchat/server/cache.cpp.i
-
-Groupchat/server/cache.s: Groupchat/server/cache.cpp.s
-.PHONY : Groupchat/server/cache.s
-
-# target to generate assembly for a file
-Groupchat/server/cache.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/server/cache.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/server/cache.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/bot_test.dir/build.make CMakeFiles/bot_test.dir/Groupchat/server/cache.cpp.s
-.PHONY : Groupchat/server/cache.cpp.s
-
 Groupchat/server/chat_server.o: Groupchat/server/chat_server.cpp.o
 .PHONY : Groupchat/server/chat_server.o
 
@@ -329,6 +299,36 @@ Groupchat/server/thread_pool.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/server/thread_pool.cpp.s
 .PHONY : Groupchat/server/thread_pool.cpp.s
 
+Groupchat/shared/cache.o: Groupchat/shared/cache.cpp.o
+.PHONY : Groupchat/shared/cache.o
+
+# target to build an object file
+Groupchat/shared/cache.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/shared/cache.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/shared/cache.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bot_test.dir/build.make CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.o
+.PHONY : Groupchat/shared/cache.cpp.o
+
+Groupchat/shared/cache.i: Groupchat/shared/cache.cpp.i
+.PHONY : Groupchat/shared/cache.i
+
+# target to preprocess a source file
+Groupchat/shared/cache.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/shared/cache.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/shared/cache.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bot_test.dir/build.make CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.i
+.PHONY : Groupchat/shared/cache.cpp.i
+
+Groupchat/shared/cache.s: Groupchat/shared/cache.cpp.s
+.PHONY : Groupchat/shared/cache.s
+
+# target to generate assembly for a file
+Groupchat/shared/cache.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/Groupchat/shared/cache.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/client.dir/build.make CMakeFiles/client.dir/Groupchat/shared/cache.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/bot_test.dir/build.make CMakeFiles/bot_test.dir/Groupchat/shared/cache.cpp.s
+.PHONY : Groupchat/shared/cache.cpp.s
+
 Groupchat/tests/bot_test.o: Groupchat/tests/bot_test.cpp.o
 .PHONY : Groupchat/tests/bot_test.o
 
@@ -370,9 +370,6 @@ help:
 	@echo "... Groupchat/client/main.o"
 	@echo "... Groupchat/client/main.i"
 	@echo "... Groupchat/client/main.s"
-	@echo "... Groupchat/server/cache.o"
-	@echo "... Groupchat/server/cache.i"
-	@echo "... Groupchat/server/cache.s"
 	@echo "... Groupchat/server/chat_server.o"
 	@echo "... Groupchat/server/chat_server.i"
 	@echo "... Groupchat/server/chat_server.s"
@@ -385,6 +382,9 @@ help:
 	@echo "... Groupchat/server/thread_pool.o"
 	@echo "... Groupchat/server/thread_pool.i"
 	@echo "... Groupchat/server/thread_pool.s"
+	@echo "... Groupchat/shared/cache.o"
+	@echo "... Groupchat/shared/cache.i"
+	@echo "... Groupchat/shared/cache.s"
 	@echo "... Groupchat/tests/bot_test.o"
 	@echo "... Groupchat/tests/bot_test.i"
 	@echo "... Groupchat/tests/bot_test.s"

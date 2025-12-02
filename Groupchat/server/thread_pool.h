@@ -9,18 +9,27 @@
 #include <functional>
 #include <atomic>
 
+struct Task {
+    std::function<void()> func;
+    int priority;  // Lower number = higher priority (for SJF simulation)
+    
+    bool operator<(const Task &other) const {
+        return priority > other.priority;  // Min-heap
+    }
+};
+
 class ThreadPool {
 public:
     explicit ThreadPool(size_t threads);
     ~ThreadPool();
 
-    void enqueue(std::function<void()> task);
+    void enqueue(std::function<void()> task, int priority = 5);
 
     size_t size() const { return workers.size(); }
 
 private:
     std::vector<std::thread> workers;
-    std::queue<std::function<void()>> tasks;
+    std::priority_queue<Task> tasks;  // Priority queue for SJF scheduling
 
     mutable std::mutex queue_mutex;
     std::condition_variable condition;

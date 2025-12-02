@@ -2,3 +2,22 @@
 # Format: [TIMESTAMP] USERNAME: MESSAGE
 # Generated on startup
 
+1764645742 | group 1 | Cam: Yoo what's up guys
+1764645748 | group 1 | dre: Hey Cam
+1764645753 | group 1 | Ocso: yooo
+1764645760 | group 1 | Cam: how yall been 
+1764645768 | group 1 | dre: All well and yourself?
+1764645781 | group 1 | Ocso: Can't complain, Cant complain!
+1764645789 | group 1 | Cam: Im goood and all.
+1764645809 | group 1 | Cam: HOW ABOUT THOSE BEBEA
+1764645821 | group 1 | Cam: HOW ABOUT THOSE BEARSSSSS
+1764645830 | group 1 | dre: BEAR DOWNNN!!!
+1764645854 | group 1 | Ocso: BEARS 2026 Superbowl Champs.
+1764645859 | group 1 | Ocso: STAMPED!!!
+1764645869 | group 1 | Cam: Fa sure
+1764645918 | group 1 | Cam: Dre a Packers fan >)
+1764645926 | group 1 | Cam: BOOOO!!
+1764645937 | group 1 | Ocso: Hilarious
+1764645946 | group 1 | Ocso: talk later guys
+1764645956 | group 1 | dre: See yall, bears weak!
+1764645968 | group 1 | Cam: never in a million! later.

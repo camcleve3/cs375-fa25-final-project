@@ -10,7 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/cs375-fa25-final-project/Groupchat/client/chat_client.cpp" "CMakeFiles/client.dir/Groupchat/client/chat_client.cpp.o" "gcc" "CMakeFiles/client.dir/Groupchat/client/chat_client.cpp.o.d"
   "/workspaces/cs375-fa25-final-project/Groupchat/client/main.cpp" "CMakeFiles/client.dir/Groupchat/client/main.cpp.o" "gcc" "CMakeFiles/client.dir/Groupchat/client/main.cpp.o.d"
-  "/workspaces/cs375-fa25-final-project/Groupchat/server/cache.cpp" "CMakeFiles/client.dir/Groupchat/server/cache.cpp.o" "gcc" "CMakeFiles/client.dir/Groupchat/server/cache.cpp.o.d"
+  "/workspaces/cs375-fa25-final-project/Groupchat/shared/cache.cpp" "CMakeFiles/client.dir/Groupchat/shared/cache.cpp.o" "gcc" "CMakeFiles/client.dir/Groupchat/shared/cache.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

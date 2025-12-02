@@ -1,5 +1,5 @@
 #include "chat_server.h"
-
+#include "shared/metrics.h"
 #include <iostream>
 #include <cstring>
 #include <arpa/inet.h>
@@ -32,6 +32,7 @@ void ChatServer::setup_socket() {
         perror("listen");
         std::exit(EXIT_FAILURE);
     }
+
     std::cout << "Server listening on port " << port << std::endl;
 }
 
@@ -44,13 +45,14 @@ void ChatServer::run() {
         int clientSocket = accept(server_fd,
                                   (sockaddr*)&client_addr,
                                   &addrlen);
+
         if (clientSocket < 0) {
             perror("accept");
             continue;
         }
+
         std::cout << "New client " << clientSocket << " connected\n";
 
-        // Scheduling via thread pool (Round Robin on tasks queue)
         pool.enqueue([this, clientSocket]() {
             handle_client(clientSocket);
         });
@@ -58,66 +60,83 @@ void ChatServer::run() {
 }
 
 void ChatServer::handle_client(int clientSocket) {
-    bool connected = true;
-
-    // Default group 1 until client sends JOIN
+    groups.joinGroup(clientSocket, 1); // default group
     uint16_t currentGroup = 1;
-    groups.joinGroup(clientSocket, currentGroup);
 
-    // Send recent history for group 1
-    auto history = groups.cacheManager().getHistory(currentGroup);
-    for (auto &msg : history) {
-        ChatPacket net = to_network(msg);
-        send(clientSocket, &net, sizeof(net), 0);
+    // Send recent message history for group 1
+    auto history = groups.getGroupHistory(1);
+    for (const auto &msg : history) {
+        ChatPacket netPkt = to_network(msg);
+        send(clientSocket, &netPkt, sizeof(netPkt), 0);
     }
 
-    while (connected) {
+    while (true) {
         ChatPacket netPkt{};
         ssize_t bytes = recv(clientSocket, &netPkt, sizeof(netPkt), 0);
+
         if (bytes <= 0) {
             std::cout << "Client " << clientSocket << " disconnected\n";
             groups.removeClient(clientSocket);
             close(clientSocket);
-            connected = false;
-            break;
+            return;
         }
 
         ChatPacket pkt = to_host(netPkt);
+        pkt.senderID = clientSocket; // Set sender ID to socket
+
+        std::cout << "[SERVER] Received type=" << (int)pkt.type
+                  << " group=" << pkt.groupID
+                  << " from=" << pkt.senderName
+                  << " payload=" << pkt.payload << "\n";
 
         switch (pkt.type) {
-            case MSG_JOIN: {
-                uint16_t groupID = pkt.groupID;
-                groups.switchGroup(clientSocket, groupID);
-                currentGroup = groupID;
+            case MSG_JOIN:
+            case MSG_SWITCH:
+                currentGroup = pkt.groupID;
+                groups.switchGroup(clientSocket, currentGroup);
+                // Send history for new group
+                {
+                    auto hist = groups.getGroupHistory(currentGroup);
+                    for (const auto &msg : hist) {
+                        ChatPacket net = to_network(msg);
+                        send(clientSocket, &net, sizeof(net), 0);
+                    }
+                }
+                break;
 
-                // send cached history
-                auto hist = groups.cacheManager().getHistory(groupID);
-                for (auto &m : hist) {
-                    ChatPacket net = to_network(m);
-                    send(clientSocket, &net, sizeof(net), 0);
-                }
-                break;
-            }
-            case MSG_SWITCH: {
-                uint16_t newGroup = pkt.groupID;
-                groups.switchGroup(clientSocket, newGroup);
-                currentGroup = newGroup;
-                auto hist = groups.cacheManager().getHistory(newGroup);
-                for (auto &m : hist) {
-                    ChatPacket net = to_network(m);
-                    send(clientSocket, &net, sizeof(net), 0);
-                }
-                break;
-            }
-            case MSG_TEXT: {
-                // Broadcast to all in currentGroup
+            case MSG_TEXT:
                 groups.broadcast(clientSocket, currentGroup, pkt);
+                PerformanceMetrics::getInstance().incrementMessageCount();
                 break;
-            }
+
+            case MSG_LIST_GROUPS:
+                {
+                    auto activeGroups = groups.getActiveGroups();
+                    std::string groupList;
+                    for (size_t i = 0; i < activeGroups.size(); ++i) {
+                        groupList += std::to_string(activeGroups[i]);
+                        if (i < activeGroups.size() - 1) groupList += ", ";
+                    }
+                    ChatPacket resp = make_packet(MSG_LIST_GROUPS, 0, groupList, 0, "SERVER");
+                    ChatPacket net = to_network(resp);
+                    send(clientSocket, &net, sizeof(net), 0);
+                }
+                break;
+
             default:
-                std::cerr << "Unknown packet type from client "
-                          << clientSocket << "\n";
-                break;
+                std::cout << "Unknown packet type\n";
         }
     }
+}
+
+void ChatServer::shutdown() {
+    std::cout << "Shutting down server...\n";
+    
+    // Log final performance metrics
+    PerformanceMetrics::getInstance().logMetrics();
+    
+    if (server_fd != -1) {
+        close(server_fd);
+    }
+    std::cout << "Server shutdown complete.\n";
 }
