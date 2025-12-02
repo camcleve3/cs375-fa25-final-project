@@ -1,0 +1,60 @@
+# Checklist for CS375 Final Project
+
+## Project Setup
+- [x] Project directory structure created
+- [x] README.md with comprehensive documentation
+- [x] CMakeLists.txt for building the project
+- [ ] All source files compile without errors
+- [ ] Git repository properly configured
+
+## Client Implementation
+- [x] main.cpp - Client entry point
+- [x] chat_client.cpp - Client socket implementation
+- [x] audio_client.cpp - Optional audio streaming
+- [ ] User interface for sending/receiving messages
+- [ ] Connection handling and error recovery
+- [ ] Command parsing (/join, /quit, etc.)
+
+## Server Implementation
+- [x] main.cpp - Server entry point
+- [x] chat_server.cpp - Server socket implementation
+- [x] group_manager.cpp - Group chat functionality
+- [x] cache.cpp - LRU cache for messages
+- [x] thread_pool.cpp - Thread pool for clients
+- [ ] Broadcast message functionality
+- [ ] Client connection management
+- [ ] Graceful shutdown handling
+
+## Shared Components
+- [x] protocol.h - Binary protocol definitions
+- [x] cache.h - Cache header file
+- [x] utils.h - Utility functions
+- [ ] Protocol implementation and validation
+- [ ] Error handling utilities
+
+## OS Concepts
+- [ ] IPC: Binary protocol implemented
+- [ ] Virtual Memory: Paging simulation
+- [ ] Interrupts: Signal handling
+- [ ] Deadlock Prevention: Resource ordering
+
+## Testing
+- [x] bol_test.cpp - Test harness created
+- [ ] Thread pool tests passing
+- [ ] Cache tests passing
+- [ ] Integration tests passing
+- [ ] Performance benchmarks
+
+## Documentation
+- [x] README.md completed
+- [x] Code comments added
+- [x] Architecture diagrams (placeholders)
+- [ ] Final report document
+- [ ] User manual/guide
+
+## Deliverables
+- [ ] All code compiles and runs
+- [ ] Test harness passes all tests
+- [ ] Documentation complete
+- [ ] Demo video/screenshots
+- [ ] Final report submitted

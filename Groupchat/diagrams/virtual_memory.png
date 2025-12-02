@@ -1,0 +1,9 @@
+Virtual Memory Simulation
+(This is a placeholder - actual diagram files would be PNG images)
+
+Memory Layout:
+- Code Segment
+- Data Segment
+- Heap (dynamic allocation)
+- Stack (thread stacks)
+- Shared Memory (IPC)

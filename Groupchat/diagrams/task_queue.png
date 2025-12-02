@@ -1,0 +1,8 @@
+Task Queue Diagram
+(This is a placeholder - actual diagram files would be PNG images)
+
+Thread Pool Task Queue:
+- Producer: Add tasks to queue
+- Queue: FIFO task storage
+- Consumer: Worker threads process tasks
+- Synchronization: Mutex and condition variables

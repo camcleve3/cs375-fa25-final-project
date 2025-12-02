@@ -1,0 +1,4 @@
+# Chat Log File
+# Format: [TIMESTAMP] USERNAME: MESSAGE
+# Generated on startup
+

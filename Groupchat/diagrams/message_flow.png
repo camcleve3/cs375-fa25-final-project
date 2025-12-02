@@ -1,0 +1,9 @@
+Message Flow Diagram
+(This is a placeholder - actual diagram files would be PNG images)
+
+Message Flow:
+1. Client A sends message
+2. Server receives message
+3. Server validates message
+4. Server broadcasts to all connected clients
+5. Clients receive and display message

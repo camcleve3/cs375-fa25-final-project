@@ -1,0 +1,12 @@
+Thread Architecture Diagram
+(This is a placeholder - actual diagram files would be PNG images)
+
+Client Thread Architecture:
+- Main Thread: UI and user input
+- Receive Thread: Handle incoming messages
+- Send Thread: Send outgoing messages
+
+Server Thread Architecture:
+- Main Thread: Accept new connections
+- Worker Threads: Handle client connections (thread pool)
+- Broadcast Thread: Distribute messages to clients

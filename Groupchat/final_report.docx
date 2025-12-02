@@ -1,0 +1,99 @@
+# CS375 Final Project Report
+
+## Group Chat System with OS Concepts
+
+### Executive Summary
+This document describes the implementation of a multi-threaded client-server group chat system that demonstrates key operating system concepts including IPC, thread management, synchronization, and resource management.
+
+### 1. Introduction
+The project implements a scalable chat server capable of handling multiple concurrent clients using thread pools, implementing efficient message caching, and providing group chat functionality.
+
+### 2. Architecture
+- **Client-Server Model**: TCP-based communication
+- **Multi-threaded Design**: Thread pool for scalability
+- **Binary Protocol**: Efficient structured communication
+- **Group Management**: Multiple chat rooms support
+
+### 3. Key OS Concepts Implemented
+
+#### 3.1 IPC (Inter-Process Communication)
+- Binary protocol for efficient data exchange
+- TCP socket communication
+- Message serialization and deserialization
+- Structured packet definitions with headers
+
+#### 3.2 Virtual Memory
+- Simulated paging with fixed memory pool in cache
+- Memory management strategies
+- Buffer management for network I/O
+
+#### 3.3 Interrupts
+- Signal handling for graceful shutdown
+- Client disconnection handling
+- Error recovery mechanisms
+
+#### 3.4 Deadlock Prevention
+- Resource ordering using banker's algorithm concepts
+- Lock hierarchy implementation
+- Mutex usage patterns to prevent circular wait
+
+### 4. Implementation Details
+
+#### 4.1 Thread Pool
+- Fixed-size worker thread pool
+- Task queue with condition variables
+- Efficient work distribution
+- Resource pooling for better performance
+
+#### 4.2 LRU Cache
+- O(1) get and put operations
+- Thread-safe implementation
+- Configurable capacity
+- Template-based for type flexibility
+
+#### 4.3 Group Management
+- Create, join, and leave groups
+- Member tracking
+- Targeted message broadcasting
+
+#### 4.4 Binary Protocol
+- Fixed header size
+- Message type enumeration
+- Length-prefixed messages
+- Extensible design
+
+### 5. Testing
+- Unit tests for thread pool
+- Cache functionality validation
+- Integration testing scenarios
+- Performance benchmarks
+
+### 6. Performance Analysis
+- Thread pool vs thread-per-client comparison
+- Cache hit rate analysis
+- Scalability testing results
+- Memory usage profiling
+
+### 7. Challenges and Solutions
+- Race conditions: Resolved with proper mutex usage
+- Deadlock risks: Prevented with lock ordering
+- Memory leaks: Fixed with RAII patterns
+- Error handling: Comprehensive exception management
+
+### 8. Future Enhancements
+- Audio/video streaming support
+- End-to-end encryption
+- Message persistence (database)
+- Web-based client interface
+- Load balancing for multiple servers
+
+### 9. Conclusion
+The project successfully demonstrates core operating system concepts in a practical application, showcasing thread management, synchronization, IPC, and resource management.
+
+### 10. References
+- Stevens, W. Richard. "Unix Network Programming"
+- Silberschatz, Abraham. "Operating System Concepts"
+- C++ Concurrency in Action by Anthony Williams
+
+---
+*Document Placeholder - To be completed with detailed implementation analysis, diagrams, and performance metrics*
